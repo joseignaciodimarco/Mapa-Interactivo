@@ -6,7 +6,7 @@ function inicializarMapa () {
     /* Modificá la variable mapa con el constructor Map().
     Tendrás que asignarle un valor de zoom y
     un centro igual a la variable posicionCentral. */
-    map = new google.maps.Map(document.getElementById('map'),{
+    mapa = new google.maps.Map(document.getElementById('map'),{
       center: posicionCentral,
       zoom: 8
     });

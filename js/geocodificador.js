@@ -1,5 +1,5 @@
 geocodificadorModulo = (function () {
-  var geocodificador // Geocodificador que dada una dirección devuelve una coordenada
+  var geocodificador ;// Geocodificador que dada una dirección devuelve una coordenada
   
     // Permite obtener las coordenadas y las usa con la función llamada por parámtero
   function usaDireccion (direccion, funcionALlamar) {
@@ -8,6 +8,13 @@ geocodificadorModulo = (function () {
      y que llame a la función pasada por parámetro con los siguientes parámetros
      dirección: la dirección pasada por parámetro
      coordenada: la ubicación de tipo google.maps.LatLng */
+     geocodificador.geocode({'address': direccion}, function(results, status) {
+      if (status == 'OK') {
+        funcionALlamar(direccion, results[0].geometry.location);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
   }
 
     // Inicializo el geocoder que obtiene las corrdenadas a partir de una dirección

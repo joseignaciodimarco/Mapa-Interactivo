@@ -43,11 +43,11 @@ direccionesModulo = (function () {
     // Agrega la dirección en las listas de puntos intermedios y lo muestra con el street view
   function agregarDireccionYMostrarEnMapa (direccion, ubicacion) {
     that = this
-    var ubicacionTexto = ubicacion.lat() + ',' + ubicacion.lng()
-    agregarDireccionEnLista(direccion, ubicacionTexto)
-    mapa.setCenter(ubicacion)
-    streetViewModulo.fijarStreetView(ubicacion)
-    marcadorModulo.mostrarMiMarcador(ubicacion)
+    var ubicacionTexto = ubicacion.lat() + ',' + ubicacion.lng();
+    agregarDireccionEnLista(direccion, ubicacionTexto);
+    mapa.setCenter(ubicacion);
+    streetViewModulo.fijarStreetView(ubicacion);
+    marcadorModulo.mostrarMiMarcador(ubicacion);
   }
 
   function agregarDireccion (direccion, ubicacion) {
