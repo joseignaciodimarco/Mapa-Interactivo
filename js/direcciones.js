@@ -96,6 +96,31 @@ direccionesModulo = (function () {
         /* Completar la función calcularYMostrarRutas , que dependiendo de la forma en que el
          usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
          y luego muestra la ruta. */
+        let modoViaje;
+
+        switch(document.getElementById('comoIr').value) {
+          case 'Auto':
+            modoViaje = 'DRIVING'
+            break;
+          case 'Caminando':
+            modoViaje = 'WALKING'
+            break;
+          default:
+          modoViaje = 'TRANSIT'
+
+        }
+        
+         servicioDirecciones.route({
+          origin: document.getElementById('desde').value,
+          destination: document.getElementById('hasta').value,
+          travelMode: modoViaje
+        }, function(response, status) {
+          if (status === 'OK') {
+            mostradorDirecciones.setDirections(response);
+          } else {
+            window.alert('Error al calcular ruta');
+          }
+        });   
   }
 
   return {
