@@ -1,6 +1,6 @@
 var mapa // Mapa que vamos a modificar
 /* Crear la variable posicionCentral con las coordenadas donde se va a centrar el mapa */
-var posicionCentral = {lat: -34.397, lng: 150.644}
+var posicionCentral = {lat: 41.881832, lng: -87.623177}
 
 function inicializarMapa () {
     /* Modificá la variable mapa con el constructor Map().

@@ -1,10 +1,22 @@
 streetViewModulo = (function () {
-  var paronama // 'Visor' de StreetView
+  var panorama // 'Visor' de StreetView
 
   function inicializar () {
         /* Completar la función inicializar()  que crea un panorama
         en una posición y lo muestra en la página. */
+        var fenway = {lat: 42.345573, lng: -71.098326};
 
+         panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('pano'), {
+              position: mapa.getCenter(),
+              pov: {
+                heading: 34,
+                pitch: 10
+              }
+            });
+
+        mapa.setStreetView(panorama);
+        
   }
 
     // Actualiza la ubicación del Panorama
