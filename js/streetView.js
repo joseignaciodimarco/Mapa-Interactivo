@@ -24,7 +24,8 @@ streetViewModulo = (function () {
         /* Completar la función fijarStreetView que actualiza la posición
          de la variable panorama y cambia el mapa de modo tal que se vea
          el streetView de la posición actual. */
-  }
+         panorama.setPosition(ubicacion);
+    }
 
   return {
     inicializar,
