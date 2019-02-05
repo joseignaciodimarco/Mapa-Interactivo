@@ -96,6 +96,17 @@ direccionesModulo = (function () {
         /* Completar la función calcularYMostrarRutas , que dependiendo de la forma en que el
          usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
          y luego muestra la ruta. */
+
+        var waypts = [];
+        var checkboxArray = document.getElementById('puntosIntermedios');
+        for (var i = 0; i < checkboxArray.length; i++) {
+          if (checkboxArray.options[i].selected) {
+              waypts.push({
+              location: checkboxArray[i].value,
+              stopover: true
+          });
+        }
+
         let modoViaje;
 
         switch(document.getElementById('comoIr').value) {
@@ -109,19 +120,25 @@ direccionesModulo = (function () {
           modoViaje = 'TRANSIT'
 
         }
-        
+
          servicioDirecciones.route({
           origin: document.getElementById('desde').value,
           destination: document.getElementById('hasta').value,
+          waypoints: waypts,
+          optimizeWaypoints: true,
           travelMode: modoViaje
+
         }, function(response, status) {
           if (status === 'OK') {
             mostradorDirecciones.setDirections(response);
+
           } else {
             window.alert('Error al calcular ruta');
+            return;
           }
         });   
   }
+}
 
   return {
     inicializar,
